@@ -1,0 +1,652 @@
+2020-09-14
+
+
+1991 Linus Torwalds	386 védett mód
+
+
+Linux
+	kernel
+	terjesztések
+		Debian GNU/Linux
+		Ubuntu Linux
+		Fedora Linux
+		RedHat Linux
+		SUSE Linux
+		Madriva Linux
+		MX Linux
+		
+
+Két féle terjesztés
+	Ahol van külön szerver és asztali
+	Egy terjesztés van, ami lehet 
+	szerver vagy asztali gép
+
+Debian GNU/Linux
+	egy terjesztés, szerver és asztali 
+	gépnek
+
+
+Virtualbox
+	virtualbox.org
+	
+Debian GNU/Linux
+	debian.org
+	netinstall
+	
+	két féle CPU:
+		amd64	i386
+
+	Fő verziók 2 événte
+	Jelen fő verzió: 10
+
+
+Tanulói gépen a Debian
+	/home/vbox/
+		
+esre
+
+
+Génév: esre
+Tartomány név: zold.lan
+
+root jelszó:
+12345
+12345
+Új felhasználó TELJES neve: Nagy János
+Felhasználónév: janos
+12345
+12345
+
+Particonálási mód:
+	Irányított -- az egész lemez felhasználása
+	<Enter>
+	Minden fájl egyetlen partícióra
+
+
+Átnézzek még egy CD/DVD-t?
+	<Nem>
+	
+A választandó Debian tükör országa:
+	Magyarország
+	ftp.hu.debian.org
+
+HTTP-proxy adatok
+	(üresen hagyjuk)
+
+
+[ ] Asztali...
+[ ]
+[ ]
+[ ]
+[ ]
+[*] Szokásos ...
+
+GRUB 
+  <le>
+  <Enter>
+
+/dev/sda  
+	
+	
+Konzol: 6 db. TTY
+Alt+F1
+...
+Alt+F6
+
+GUI felületről konzolos TTY:
+Ctrl+Alt+F1  (Virtulabox: Jobb Ctrl+F1)
+
+Vissza GUI-ra:
+Alt+F7
+
+
+poweroff
+
+
+38 GiB HDD
+sdb1	10 GiB 	ext4 	/mnt/a
+sdb2	8 GiB	ext4	/mnt/b
+
+Ext4
+Extended fájlrendszer
+
+
+lsblk
+
+fdisk /dev/sdb
++10G
+
+
+lsblk
+lsblk -f
+
+
+mkfs.ext4 /dev/sdb1
+mkfs.ext4 /dev/sdb2
+
+lsblk -f
+
+mkdir /mnt/a
+mkdir /mnt/b
+
+Csatolás:
+mount /dev/sdb1 /mnt/a
+mount /dev/sdb2 /mnt/b
+
+lsblk 
+lsblk -f
+df -h
+
+Lecsatolás:
+umount /dev/sdb1
+vagy
+umount /mnt/a
+
+Ez a csatolás nem tartós.
+
+_Tartós csatolás_
+
+Be kell írni a csatolást
+a /etc/fstab
+
+nano /etc/fstab
+
+/dev/sdb1 /mnt/a ext4 defaults 0 1
+/dev/sdb2 /mnt/b ext4 defaults 0 1
+
+Mentés: Ctrl+O 
+		Enter
+		
+Kilépés: Ctrl+X
+
+mount --all
+
+reboot
+
+(
+apt update
+apt install lxde
+apt install bzflag
+)
+
+
+_Felhasználói ismeretek_
+
+login: root
+
+exit
+logout
+Ctrl+D
+
+users
+who
+w
+
+pwd (Print Working Directory)
+id
+
+pwd
+(/home/janos/)
+
+ls	(list; akt. könyv, tart.)
+ls -a
+
+cd ..
+pwd
+
+~   a saját könyvtár aliasa
+
+cd ..
+
+Vissza a saját könyvtárba 5 módon:
+1) 
+cd home
+cd janos
+2) home/janos
+
+3) cd /home
+   cd janos
+
+4) cd /home/janos
+
+5) cd
+
+Könyvtár létrehozása
+mkdir gyumolcs
+cd gyumolcs
+mkdir kopa
+rmdir kopa
+
+Ha van a könyvtárban valami
+
+mkdir kopa
+mkdir kopa/para
+
+rm -rf kopa
+
+_Állománykezelés_
+
+
+mkdir gyumolcs
+cd gyumolcs
+
+touch adat.txt
+ls
+rm adat.txt
+
+átnevezés és mozgatás:
+
+mv adat.txt gy.txt
+
+mv dir1 dir2
+mv adat.txt dir2
+
+Jelszóváltoztatás:
+passwd
+
+rootként:
+passwd janos
+
+echo %PATH%
+
+
+%SystemRoot%\system32;%SystemRoot%;
+%SystemRoot%\System32\Wbem;
+%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\
+
+Bash
+cmd
+PowerShell
+
+
+======================
+
+2020-09-28
+
+Linuxra belépni:
+tanulo
+tanulo
+
+VirtualBox
+
+(Otthonra:
+
+)
+
+
+Telepítés újra
+
+
+3 rész
+
+			csatolási 
+			pont		fájlrend.
+/dev/sda1	/			ext4		2 GiB
+/dev/sda2	/home		ext4		2 GiB
+/dev/sda3   swap		cserehely	1 GiB
+
+(ez lenne a második merevlemez
+/dev/sdb
+)
+
+
+Gépnév: iskolazo
+Tartomány név: zold.lan
+12345
+12345
+
+Új felhasználó TELJES Neve: Nagy János
+Felhasználóneve: janos
+12345
+12345
+
+Partíciók!!!!!!!!!!!!!
+
+Most:
+Kézi
+
+SCSI3 (0,0,0) (sda) - 8.6 GB ATA VBOX HARDDISK
+
+  els/log 8.6 GB   SZABAD HELY
+  
+  Új partíció létrehozása
+
+Debian GNU/Linux
+SUSE
+Red Hat
+Mandriva
+
+  
+
+Lehetséges elméleti dolgozat kérdések
+1.) Mi a különbség a Linux kerenel
+és a Linux terjesztés között?
+
+
+2.) Mi a kernel?
+
+3.) Írjon minimum 4 Linux terjesztést.
+
+4.) Mi a GRUB?
+
+5.) Mit jelent a netinstall?
+
+6.) Hogyan lehet a TTY2-re lépni, ha
+a TTY1-en állok.
+
+7.) Hogyan lehet a TTY2-re lépni, ha
+GUI felületen vagyok.
+
+Ctrl+Alt+F2
+
+
+8.) Telepítve van a GUI, és szeretnénk
+konzolró visszaváltani. Hogyan?
+Alt+F7
+
+9.) Milyen programmal particonálhatjuk a
+merevlmezet. (a telepítőn kívül).
+Parancssoros:
+
+fdisk
+
+fdisk /dev/sdb
+
+10.) Adott a sdc partíció, hogyan 
+indítjuk a partícónálót, ha ezt akarom
+szerkeszteni. (Install nélkül)
+
+fdisk /dev/sdc 
+
+
+
+Utólag egy új merevlemzet vettünk
+a szerverbe, és beszereljük, és
+particionálni kell.
+
+Szerver leállítása:
+poweroff
+
+HDD 38 GiB
+
+/dev/sdb1	/mnt/data  	ext4	20 GiB
+/dev/sdb2	/mnt/e		ext4 	maradék
+
+login:
+
+lsblk
+
+fdisk /dev/sdb
+
++20G
+
+lsblk
+
+formázás?
+
+lsblk -f
+
+ext4 fájlrendszer létrehozása (formázás)
+
+mkfs.ext4 /dev/sdb1
+mkfs.ext4 /dev/sdb2
+
+lsblk -f
+
+_Csatolás_
+
+
+mkdir /mnt/data
+mkdir /mnt/e
+
+mount /dev/sdb1 /mnt/data
+
+mount /dev/sdb2 /mnt/e
+
+lsblk 
+lsblk -f
+
+ls /mnt/data
+touch /mnt/data/teszt.txt
+ls /mnt/data
+
+ls /mnt/e
+touch /mnt/e/teszt2.txt
+ls /mnt/e
+
+
+
+rm /mnt/e/teszt.txt
+
+
+cd /mnt/data
+nano teszt.txt
+
+cat teszt.txt
+
+echo Valami
+echo Valami > /mnt/data/teszt.txt
+
+echo János > teszt.txt
+echo Árpád >> teszt.txt
+
+
+_Lecsatolás_
+
+# Visszalépés a rendszergazda fiókjába:
+cd 
+
+umount /dev/sdb1
+lsblk
+
+_Tartós csatolás_
+
+nano /etc/fstab
+
+# megjegyzés
+
+mount -a
+
+reboot
+
+__Web szerver__
+
+Telepítés
+
+Csomaginformációk frissítése
+apt update
+
+Telepítés:
+apt install apache2
+
+Ellenőrzés:
+ps ax
+
+ss -lt
+ss -ltn
+
+Apache vezérlése:
+
+systemctl status apache2
+systemctl stop apache2
+systemctl start apache2
+systemctl restart apache2
+systemctl enable apache2
+systemctl disable apache2
+
+poweroff
+
+ip address show
+ip a
+
+/var/www/html/index.html
+
+
+Legközelebb dolgozat, elmélet és gyakorlat
+Utána: Linux parancsok, apache weblap átírás
+
+
+======================
+
+2020-10-12
+
+1.) Importálni kell egy új gépet
+2.) Be kell tenni egy 48 GiB HDD-t.
+3.) Particókra kell bontani a következő szerint:
+/dev/sdb
+sdb1		10 GiB		/mnt/a		ext4
+sdb2		10 GiB		/mnt/b		ext4
+sdb3		8  GiB		/mnt/c		ext4
+	* csatolási pont
+	* partíciók
+	* formázni (ext4)
+	* csatolás (tartósan)
+
+lsblk 
+lsblk -f
+
+
+__Új merevelemz__
+
+62 GiB
+
+/dev/sdc		GPT
+sdc1		20 GiB   /mnt/d    btrfs
+
+lsblk
+
+fdisk /dev/sdc
+g
+
+
++20G
+
+Próba
+mkfs.btrfs
+
+apt search btrfs
+
+Lapozás fel: Shift + PageUp
+
+
+apt install btrfs-progs
+
+mkfs.btrfs /dev/sdc1
+
+
+mkdir /mnt/d
+
+nano /etc/fstab
+--------
+...
+/dev/sdc1 /mnt/d btrfs defaults 0 1
+--------
+
+mount -a
+
+__Apache azonosítás__
+
+apt update
+apt install apache2
+
+
+Azonosítás beállítása
+egy könyvtárra.
+
+Itt van az alap HTML oldal
+ls /var/www/html/index.html
+
+Erre akarunk védelemet:
+mkdir /var/www/html/penz
+
+
+ps ax
+
+ss -l -t
+
+-l	listen
+-t  TCP
+-n	numeric
+
+
+systemctl status apache2
+Kilépés Q
+systemctl stop apache2
+systemctl start apache2
+systemctl restart apache2
+
+
+ps axf
+
+
+
+Jelszavak tárolása.
+/etc/apache2/auth
+mkdir /etc/apache2/auth
+
+lili bori
+
+htpasswd -c /etc/apache2/auth/pass lili
+htpasswd /etc/apache2/auth/pass bori
+
+Ellenőrzés:
+cat /etc/apache2/auth/pass
+
+Ellenőrizhetjük az apache konfigot:
+
+apache2ctl configtest
+
+nano /etc/apache2/apache2.conf    (A legvégére)
+-------
+...
+
+ServerName zold.lan
+-------
+
+apache2ctl configtest
+
+nano /etc/apache2/sites-available/000-default.conf
+
+<VirtualHost *:80>
+...
+	<Directory /var/www/html/penz>
+		AuthType Basic
+		AuthName "Vedett tartomany"
+		AuthUserFile /etc/apache2/auth/pass
+		Require valid-user
+	</Directory>
+</VirtualHost>
+
+Ctrl+O
+Ctrl+X
+
+apache2ctrl configtest
+systemctl restart apache2
+
+Böngészőbe:
+szerver_ip_cime/penz
+
+Nem volt idő megvalósítani. Legközelebb megvalósítás.
+
+
+==========
+
+2020-11-02
+
+Óra: 
+Téma: 
+Hiányzók: 
+Dolgozat: 
+
+__Apache azonosítás megvalósítás__
+
+ip address show
+ip a
+
+  inet 10.1.x.y
+
+Böngészőbe:
+
+	http://10.1.x.y/
+	http://10.1.x.y/penz/
+	
