@@ -650,3 +650,41 @@ Böngészőbe:
 	http://10.1.x.y/
 	http://10.1.x.y/penz/
 	
+
+
+https://github.com/pantike/rend
+
+
+egressy.info
+omazonosító
+
+
+__DNS szerver__
+
+
+apt install bind9
+
+ps ax
+
+systemctl start bind9
+
+systemctl stop bind9
+systemctl restart bind9
+systemctl reload bind9
+
+rndc reload
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
